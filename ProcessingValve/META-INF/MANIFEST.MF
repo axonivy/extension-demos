@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProcessingValve
+Bundle-SymbolicName: com.acme.ProcessingValve;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: ch.ivyteam.tomcat,
+ ch.ivyteam.commons.lib,
+ ch.ivyteam.util
+Eclipse-RegisterBuddy: ch.ivyteam.tomcat
+Export-Package: com.acme.valve
