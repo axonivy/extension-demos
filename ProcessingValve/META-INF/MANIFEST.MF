@@ -9,3 +9,4 @@ Require-Bundle: ch.ivyteam.tomcat,
 Eclipse-RegisterBuddy: ch.ivyteam.tomcat
 Export-Package: com.acme.valve
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
