@@ -9,6 +9,7 @@
 	<properties>
 		<tycho.version>1.0.0</tycho.version>
 		<java.version>1.8</java.version>
+		<ivy.engine.dir>${project.build.directory}/ivyEngine</ivy.engine.dir>
 	</properties>
 
 	<repositories>
@@ -26,6 +27,60 @@
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<extensions>true</extensions>
+			</plugin>
+			
+			<plugin>
+				<groupId>com.axonivy.ivy.ci</groupId>
+				<artifactId>project-build-plugin</artifactId>
+				<version>6.5.1-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<id>install.ivy.engine</id>
+						<goals><goal>installEngine</goal></goals>
+						<phase>pre-integration-test</phase>
+					</execution>
+					<execution>
+						<id>start.test.engine</id>
+						<goals><goal>start-test-engine</goal></goals>
+						<phase>integration-test</phase>
+					</execution>
+					<execution>
+						<id>stop.test.engine</id>
+						<goals><goal>stop-test-engine</goal></goals>
+						<phase>post-integration-test</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<engineDirectory>${ivy.engine.dir}</engineDirectory>
+					<ivyVersion>[6.6.2,]</ivyVersion>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>configure.tomcat</id>
+						<phase>pre-integration-test</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<target>
+								 <ant antfile="testIntegration.xml" target="configure" inheritall="true"/>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>test.valve</id>
+						<phase>integration-test</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<target>
+								<ant antfile="testIntegration.xml" target="test" inheritall="true"/>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		

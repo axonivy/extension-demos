@@ -1,0 +1,28 @@
+<project>
+
+	<target name="configure">
+		<copy file="${basedir}/context.xml" 
+			todir="${ivy.engine.dir}/webapps/ivy/META-INF"
+			verbose="true"/>
+		<copy file="${project.build.directory}/${project.name}-${project.version}.jar" 
+			todir="${ivy.engine.dir}/lib/dropins"
+			verbose="true"/>
+	</target>
+	
+	<target name="test">
+		<get src="${test.engine.url}info/index.jsp" 
+			dest="${project.build.directory}/index.html" 
+			verbose="true"/>
+		
+		<loadfile property="engine.log" 
+			srcfile="${ivy.engine.dir}/logs/ch.ivyteam.ivy.log" />
+		
+		<condition property="hasValveLogs">
+			<matches pattern="Header --> host Value --> " string="${engine.log}"/>
+		</condition>
+		
+		<fail unless="hasValveLogs" message="Valve not in charge!" />
+		
+		<echo>Valve Processing logs found! :-)</echo>
+	</target>
+</project>
