@@ -3,10 +3,10 @@
 	<target name="configure">
 		<copy file="${basedir}/context.xml" 
 			todir="${ivy.engine.dir}/webapps/ivy/META-INF"
-			verbose="true"/>
+			verbose="true" overwrite="true"/>
 		<copy file="${project.build.directory}/${project.name}-${project.version}.jar" 
 			todir="${ivy.engine.dir}/lib/dropins"
-			verbose="true"/>
+			verbose="true" overwrite="true"/>
 	</target>
 	
 	<target name="test">
