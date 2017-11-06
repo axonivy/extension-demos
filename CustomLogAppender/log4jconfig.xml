@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!--
+  This is the logging configuration file for Axon.ivy Designer.
+  It defines which log messages are logged (category/priority) and where the logs are written to. 
+   
+  Logging in Axon.ivy Designer is based on a 3rd party library called Log4J 
+  (see http://logging.apache.org/log4j for more information).
+   
+-->
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <!--
+   Defines an appender that will write log messages to a file
+   that is located in the logs directory and is called ch.ivyteam.ivy.log with
+   a prefix of the current date.
+   Every day a new file will be created.  
+  -->
+  <appender name="FileLog" class="org.apache.log4j.DailyRollingFileAppender"> 
+   	<param name="Threshold" value="WARN"/> 
+   	<param name="File" value="${user.dir}/logs/ch.ivyteam.ivy.log"/> 
+   	<param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+   	<layout class="ch.ivyteam.log.layout.IvyLog4jLayout"> 
+  		<param name="DateFormat" value="HH:mm:ss.SSS"/>
+   	</layout> 
+  </appender>
+ 
+  <!--
+   Defines an appender that will write log messages to the console  
+  -->
+  <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender"> 
+   	<layout class="ch.ivyteam.log.layout.IvyLog4jLayout"> 
+   		<param name="DateFormat" value="HH:mm:ss.SSS"/> 
+   		<param name="FixedCategoryLength" value="20"/> 
+   	</layout> 
+  </appender>
+  
+    
+  <appender name="MyWsAppender" class="com.acme.custom.SoapTaskLogAppender">
+    <param name="Threshold" value="DEBUG"/>
+    <layout class="ch.ivyteam.log.layout.IvyLog4jLayout">
+      <param name="DateFormat" value="HH:mm:ss.SSS"/>
+      <param name="ContextPrinting" value="false"/>
+      <param name="FixedCategoryLength" value="20"/>
+      <param name="ThreadPrinting" value="false"/>
+    </layout>
+  </appender>
+
+
+  <!--
+   Defines that every runtime log message is written that has at least a priority of DEBUG. 
+  -->
+  <category name="runtimelog" class="ch.ivyteam.log.Logger">
+    <priority value="DEBUG"/>
+  </category>
+  
+  <!-- Disable CXF warning at startup (missing META-INF/cxf/cxf.xml) -->
+  <category name="org.apache.cxf.bus.spring" class="ch.ivyteam.log.Logger">
+    <priority value="ERROR"/>
+  </category>
+  
+  <!-- Disable "Apache MyFaces-2 is running in DEVELOPMENT mode" warning at startup -->
+  <category name="org.apache.myfaces.webapp.AbstractFacesInitializer" class="ch.ivyteam.log.Logger">
+    <priority value="ERROR"/>
+  </category>
+
+  <!--
+   Defines that every log message is written that has at least a priority of WARN. 
+   Defines that log messages are written to the file and console appender defined above.
+  -->
+  <root> 
+   	<level value ="WARN" /> 
+   	<appender-ref ref="FileLog"/> 
+   	<appender-ref ref="ConsoleAppender"/> 
+    <appender-ref ref="MyWsAppender"/>
+  </root>
+
+</log4j:configuration>

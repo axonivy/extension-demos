@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.acme</groupId>
-	<artifactId>com.acme.ProcessingValve</artifactId>
-	<version>6.7.0-SNAPSHOT</version>
+	<artifactId>com.acme.CustomLogAppender</artifactId>
+	<version>7.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	
 	<properties>
@@ -67,16 +67,6 @@
 						<configuration>
 							<target>
 								 <ant antfile="testIntegration.xml" target="configure" inheritall="true"/>
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>test.valve</id>
-						<phase>integration-test</phase>
-						<goals><goal>run</goal></goals>
-						<configuration>
-							<target>
-								<ant antfile="testIntegration.xml" target="test" inheritall="true"/>
 							</target>
 						</configuration>
 					</execution>
