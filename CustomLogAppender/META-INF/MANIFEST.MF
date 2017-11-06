@@ -5,4 +5,4 @@ Bundle-SymbolicName: com.acme.CustomLogAppender
 Bundle-Version: 7.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: ch.ivyteam.ivy.server;bundle-version="7.0.0"
-Eclipse-RegisterBuddy: commons.lib
+Eclipse-RegisterBuddy: ch.ivyteam.commons.lib
