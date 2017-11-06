@@ -1,10 +1,23 @@
-# Custom Tomcat Valve
-Demonstrates how to write your own Valve for the embedded Tomcat webserver of Axon.ivy.
-A valve can be used to implement your custom user authentication scenario.
+# Axon.ivy integration
+The demos in this repository show how custom code can extend the Axon.ivy core.
 
-## Axon.ivy integration
-This demo is a good expample to show how custom code can extend the Axon.ivy core.
-It comes as OSGi bundle: means that the `META-INF/MANIFEST.MF` strictly steers the integration into the existing class realm of Axon.ivy:
-- bundle-id
-- require-bundle (set dependencies to the ivy.core)
-- buddy-policy (define which bundle of the ivy.core can consume classes of my custom bundle)
+## Bundling
+The Axon.ivy core JAR libraries life in an OSGi environment. Therefore contributions to these JARs must be OSGi compliant by itself. This means that extension JARs must not only contain the binary code of your classes. But as well an enriched `META-INF/MANIFEST.MF` that describes OSGi bundle meta data.
+
+### How to turn your JAR into a bundle
+To make your own JAR an OSGi bundle the following Manifest entries are important:
+- bundle name and versions are strictly required
+```
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.acme.MyExtension
+Bundle-Version: 1.0.0.qualifier
+```
+- define bundles from the ivy.core that are required to compile your sources
+```
+Require-Bundle: ch.ivyteam.ivy.server;bundle-version="7.0.0"
+```
+- define which bundle of the ivy.core can consume classes of your bundle by registering your bundle as buddy
+```
+Eclipse-RegisterBuddy: ch.ivyteam.tomcat
+```
+
