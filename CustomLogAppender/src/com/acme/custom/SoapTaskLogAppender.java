@@ -34,9 +34,7 @@ public class SoapTaskLogAppender extends AppenderSkeleton {
 
 	@Override
 	protected void append(LoggingEvent event) {
-		//if(event.getLoggerName().compareTo(categoryName) == 0) {
 			String formattedMessage = this.layout.format(event);
-			Ivy.log().info("GOT MESSAGE: " + formattedMessage);
 			
 			if(formattedMessage.contains("*** SOAP Request ***")) {
 				Pattern pattern = Pattern.compile("task=(\\d+)");
@@ -53,6 +51,5 @@ public class SoapTaskLogAppender extends AppenderSkeleton {
 			    	Ivy.log().info("MAO LOG: "+formattedMessage);
 			    }
 			}
-		//}
 	}
 }
