@@ -16,7 +16,7 @@
 		<repository>
 			<id>ivy.nightly.release</id>
 			<layout>p2</layout>
-			<url>http://developer.axonivy.com/dev-releases/ivy/nightly/current/p2</url>
+			<url>https://developer.axonivy.com/releases/ivy/nightly/p2/</url>
 		</repository>
 	</repositories>
 
