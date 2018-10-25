@@ -15,7 +15,7 @@
 			verbose="true"/>
 		
 		<loadfile property="engine.log" 
-			srcfile="${ivy.engine.dir}/logs/ch.ivyteam.ivy.log" />
+			srcfile="${ivy.engine.dir}/logs/ivy.log" />
 		
 		<condition property="hasValveLogs">
 			<matches pattern="Header --> host Value --> " string="${engine.log}"/>
