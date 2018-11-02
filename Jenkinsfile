@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-          sh 'mvn verify -Divy.engine.list.url=http://zugprobldmas/job/Trunk_All/'
+          sh 'mvn verify --batch-mode -Divy.engine.list.url=http://zugprobldmas/job/Trunk_All/'
           archiveArtifacts '*/target/*.jar'
       }
     }
