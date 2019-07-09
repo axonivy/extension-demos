@@ -14,7 +14,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-          sh 'mvn verify --batch-mode -Divy.engine.list.url=http://zugprobldmas/job/Trunk_All/'
+          sh 'mvn verify --batch-mode -Divy.engine.list.url=http://zugprobldmas/job/Trunk_All/ ' +
+            '-Dproject-build-plugin.version=7.4.0-SNAPSHOT '
           archiveArtifacts '*/target/*.jar'
       }
     }
