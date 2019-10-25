@@ -29,7 +29,7 @@ public class ProcessingValve extends ValveBase{
  
         while (headerNames.hasMoreElements()) {
             String header = headerNames.nextElement();
-            LOGGER.info("Header --> {0} Value --> {1}", new Object[]{header, httpServletRequest.getHeader(header)});
+            LOGGER.warn("Header --> {0} Value --> {1}", new Object[]{header, httpServletRequest.getHeader(header)});
         }
  
         getNext().invoke(request, response);
