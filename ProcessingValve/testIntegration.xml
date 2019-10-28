@@ -7,6 +7,9 @@
 		<copy file="${project.build.directory}/${project.name}-${project.version}.jar" 
 			todir="${ivy.engine.dir}/dropins"
 			verbose="true" overwrite="true"/>
+		<copy file="${basedir}/log4jconfig.xml" 
+			todir="${ivy.engine.dir}/configuration"
+			verbose="true" overwrite="true"/>
 	</target>
 	
 	<target name="test">
