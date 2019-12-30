@@ -16,7 +16,7 @@ pipeline {
       steps {
         script {
           maven cmd: 'deploy ' +
-            ' -Divy.engine.list.url=http://zugprojenkins/job/ivy-core_product/job/master/ ' +
+            ' -Divy.engine.list.url=https://jenkins.ivyteam.io/job/ivy-core_product/job/master/ ' +
             ' -Dproject-build-plugin.version=7.4.0-SNAPSHOT '
 
           archiveArtifacts '*/target/*.jar'
