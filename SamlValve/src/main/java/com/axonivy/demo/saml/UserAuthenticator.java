@@ -18,6 +18,7 @@ import org.joda.time.DateTime;
 import org.opensaml.saml.saml2.core.Assertion;
 import org.opensaml.saml.saml2.core.Conditions;
 import org.opensaml.saml.saml2.core.Response;
+import org.opensaml.security.credential.Credential;
 import org.opensaml.security.x509.BasicX509Credential;
 import org.opensaml.xml.Configuration;
 import org.opensaml.xml.io.Unmarshaller;
@@ -131,8 +132,7 @@ public final class UserAuthenticator {
 
   private static void validateSignature(Assertion assertion) throws AuthenticationException {
     try {
-      BasicX509Credential credential = new BasicX509Credential(SIGN_VERIFICATION_CERT);
-      credential.setEntityCertificate(SIGN_VERIFICATION_CERT);
+      Credential credential = new BasicX509Credential(SIGN_VERIFICATION_CERT);
       SignatureValidator.validate(assertion.getSignature(), credential);
     } catch (SignatureException se) {
       throw new AuthenticationException("Error verifying assertion signature", se);
