@@ -17,6 +17,7 @@
 		<tomcat.version>9.0.27</tomcat.version>
 		<tycho.version>1.6.0</tycho.version>
 		<maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+    <ivy.engine.dir>C:/engines/AxonIvyEngine8.0.5.2005080943_Windows_x64</ivy.engine.dir>
 		<project-build-plugin.version>8.0.3</project-build-plugin.version>
 	</properties>
 
@@ -95,7 +96,44 @@
 					<stripVersion>true</stripVersion>
 				</configuration>
 			</plugin>
-		</plugins>
+
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <!-- here the phase you need -->
+            <phase>package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <overwrite>true</overwrite>
+              <outputDirectory>${ivy.engine.dir}</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/target</directory>
+                  <include>${project.artifactId}*.jar</include>
+                  <targetPath>${ivy.engine.dir}/dropins</targetPath>
+                </resource>
+                <resource>
+                  <directory>${basedir}</directory>
+                  <include>context.xml</include>
+                  <filtering>true</filtering>
+                  <targetPath>${ivy.engine.dir}/webapps/ivy/META-INF</targetPath>
+                </resource>
+                <resource>
+                  <directory>${basedir}</directory>
+                  <include>certificate.cer</include>
+                  <targetPath>${ivy.engine.dir}/webapps/ivy</targetPath>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
 
 		<pluginManagement>
 			<plugins>

@@ -38,7 +38,6 @@ public final class UserAuthenticator
   private static final String REQUEST_SAML_PARAMETER_NAME = "SAMLResponse";
 
   // This needs to be changed to the real path to the certificate
-  private static final X509Certificate SIGN_VERIFICATION_CERT = loadCertificate("myCertificate");
 
   private final Request request;
   private Assertion assertion;
@@ -51,14 +50,15 @@ public final class UserAuthenticator
 
   /**
    * Authenticate the user set in the SAML-response POST request parameter.
+   * @param certFileName 
    * 
    * @return this object
    * @throws AuthenticationException
    */
-  public UserAuthenticator authenticate() throws AuthenticationException
+  public UserAuthenticator authenticate(String certFileName) throws AuthenticationException
   {
     this.response = unmarshallSamlResponse(decodeSamlResponse(request));
-    validateSamlResponse();
+    validateSamlResponse(certFileName);
     return this;
   }
 
@@ -96,11 +96,11 @@ public final class UserAuthenticator
     }
   }
 
-  private void validateSamlResponse() throws AuthenticationException
+  private void validateSamlResponse(String certFileName) throws AuthenticationException
   {
     this.assertion = validateResponse(this.response);
     validateAssertion(assertion);
-    validateSignature(assertion);
+    validateSignature(assertion, certFileName);
   }
 
   private static Assertion validateResponse(Response response) throws AuthenticationException
@@ -144,11 +144,11 @@ public final class UserAuthenticator
     enforceConditions(assertion.getConditions());
   }
 
-  private static void validateSignature(Assertion assertion) throws AuthenticationException
+  private static void validateSignature(Assertion assertion, String certFileName) throws AuthenticationException
   {
     try
     {
-      Credential credential = new BasicX509Credential(SIGN_VERIFICATION_CERT);
+      Credential credential = new BasicX509Credential(loadCertificate(certFileName));
       SignatureValidator.validate(assertion.getSignature(), credential);
     }
     catch (SignatureException se)

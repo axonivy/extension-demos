@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiResourceLocking="false" privileged="true" >
-  <Valve className="com.axonivy.demo.saml.IvySamlValve"/>
+  <Valve className="com.axonivy.demo.saml.IvySamlValve" certificate="${ivy.engine.dir}/webapps/ivy/certificate.cer"/>
 </Context>

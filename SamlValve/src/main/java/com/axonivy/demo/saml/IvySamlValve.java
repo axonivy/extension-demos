@@ -21,6 +21,7 @@ import ch.ivyteam.ivy.security.ISession;
 public final class IvySamlValve extends ValveBase
 {
   private static final String SAML_AUTH_ERROR_MSG = "Exception while performing the SAML SSO authentication: ";
+  private String certFileName;
 
   @Override
   public void invoke(Request request, Response response) throws IOException, ServletException
@@ -30,7 +31,7 @@ public final class IvySamlValve extends ValveBase
       try
       {
         // The request has a SAML Assertion which should be checked and used for SSO login
-        UserAuthenticator auth = new UserAuthenticator(request).authenticate();
+        UserAuthenticator auth = new UserAuthenticator(request).authenticate(certFileName);
         performUserLogin(request, auth.getAssertion());
         response.sendRedirect(auth.getRedirectUri());
       }
@@ -52,10 +53,20 @@ public final class IvySamlValve extends ValveBase
   /**
    * checks if the request has an active Ivy Session
    */
-  public boolean requestHasActiveUserSession(Request request)
+  private boolean requestHasActiveUserSession(Request request)
   {
     ISession ivySession = (ISession) request.getSession().getAttribute(ISession.class.getName());
-    return !ivySession.isSessionUserUnknown();
+    return ivySession != null && !ivySession.isSessionUserUnknown();
+  }
+  
+  public String getCertificate()
+  {
+    return this.certFileName;
+  }
+  
+  public void setCertificate(String certificateFileName)
+  {
+    this.certFileName = certificateFileName;
   }
 
   private static class SamlPrincipal implements Principal
