@@ -31,7 +31,7 @@ public final class IvySamlValve extends ValveBase
   @Override
   public void invoke(Request request, Response response) throws IOException, ServletException
   {
-    if (!requestHasActiveUserSession(request))
+    if (!requestHasActiveUserSession(request) && UserAuthenticator.hasSamlToken(request))
     {
       try
       {

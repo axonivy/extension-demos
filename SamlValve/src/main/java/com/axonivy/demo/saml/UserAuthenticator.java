@@ -8,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
-import java.util.Optional;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -190,16 +189,19 @@ public final class UserAuthenticator
     }
   }
 
-  protected static String decodeSamlResponse(Request request) throws AuthenticationException
+  protected static String decodeSamlResponse(Request request)
   {
-    Optional<String> base64SamlToken = extractBase64SamlToken(request);
-    return base64SamlToken
-            .map(token -> new String(Base64.getDecoder().decode(token), StandardCharsets.UTF_8))
-            .orElseThrow(() -> new AuthenticationException("No saml assertion provided for request " + request.getRequestURI()));
+    String base64SamlToken = extractBase64SamlToken(request);
+    return new String(Base64.getDecoder().decode(base64SamlToken), StandardCharsets.UTF_8);
   }
 
-  private static Optional<String> extractBase64SamlToken(Request request)
+  private static String extractBase64SamlToken(Request request)
   {
-    return Optional.ofNullable(request.getParameter(REQUEST_SAML_PARAMETER_NAME));
+    return request.getParameter(REQUEST_SAML_PARAMETER_NAME);
+  }
+
+  static boolean hasSamlToken(Request request)
+  {
+    return request.getParameter(REQUEST_SAML_PARAMETER_NAME) != null;
   }
 }

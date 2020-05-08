@@ -10,4 +10,4 @@ See the [ProcessingValve Tomcat example](https://github.com/ivy-samples/ivy-exte
 
 Troubleshooting: If your valve is not working as expected, consult the dropins/README.html.
 
-Sample `META-INF/MANIFEST.MF`:
+Also see `META-INF/MANIFEST.MF`.
