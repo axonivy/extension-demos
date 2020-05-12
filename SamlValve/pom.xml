@@ -9,11 +9,14 @@
   <name>IvySamlValve</name>
 
   <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <opensaml.version>3.4.5</opensaml.version>
     <opensaml.xml.version>1.4.4</opensaml.xml.version>
+    <junit.version>5.6.2</junit.version>
 
     <tomcat.version>9.0.27</tomcat.version>
-    <tycho.version>1.6.0</tycho.version>
+    <tycho.version>1.7.0</tycho.version>
     <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
     <ivy.engine.dir>C:/engines/AxonIvyEngine8.0.5.2005080943_Windows_x64</ivy.engine.dir>
     <project-build-plugin.version>8.0.3</project-build-plugin.version>
@@ -59,15 +62,122 @@
       <artifactId>xmltooling</artifactId>
       <version>${opensaml.xml.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.15.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>keytool-maven-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>generate-keypair</id>
+            <goals>
+              <goal>generateKeyPair</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <validity>3600</validity>
+              <keysize>2048</keysize>
+              <keyalg>RSA</keyalg>
+              <sigalg>SHA256withRSA</sigalg>
+              <dname>CN=AXON Ivy AG, OU=DEVELOPMENT, O=AXON Ivy AG, L=Zug, ST=Zug, C=CH</dname>
+              <ext>san=dns:localhost,ip:127.0.0.1</ext>
+            </configuration>
+          </execution>
+          <execution>
+            <id>export-certificate</id>
+            <goals>
+              <goal>exportCertificate</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <file>${project.basedir}/certificate.cer</file>
+              <rfc>true</rfc>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <alias>ivysaml</alias>
+          <keystore>${project.basedir}/selfsigned.p12</keystore>
+          <storepass>changeit</storepass>
+          <storetype>PKCS12</storetype>
+          <skipIfExist>true</skipIfExist>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+        <executions>
+          <execution>
+            <id>test</id>
+            <phase>test</phase>
+            <configuration>
+              <includes>
+                <include>**/*Test.java</include>
+              </includes>
+            </configuration>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>compile-tests</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
         <version>${tycho.version}</version>
         <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <excludes>
+            <exclude>**/test/**</exclude>
+          </excludes>
+        </configuration>
       </plugin>
 
       <!-- copy maven dependencies to lib -->
@@ -206,6 +316,20 @@
                       <goal>
                         validate-version
                       </goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>keytool-maven-plugin</artifactId>
+                    <versionRange>[1.5,)</versionRange>
+                    <goals>
+                      <goal>exportCertificate</goal>
+                      <goal>generateKeyPair</goal>
                     </goals>
                   </pluginExecutionFilter>
                   <action>
