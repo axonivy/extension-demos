@@ -6,6 +6,7 @@ Bundle-Version: 8.0.0.qualifier
 Eclipse-RegisterBuddy: ch.ivyteam.tomcat
 Bundle-ClassPath:  .,
  lib/opensaml-saml-api.jar,
+ lib/opensaml-saml-impl.jar,
  lib/opensaml-core.jar,
  lib/opensaml-security-api.jar,
  lib/opensaml-xmlsec-api.jar,

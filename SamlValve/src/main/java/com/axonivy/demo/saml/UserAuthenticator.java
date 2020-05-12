@@ -14,17 +14,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.catalina.connector.Request;
 import org.apache.http.auth.AuthenticationException;
 import org.joda.time.DateTime;
+import org.opensaml.core.xml.io.UnmarshallingException;
 import org.opensaml.saml.saml2.core.Assertion;
 import org.opensaml.saml.saml2.core.Conditions;
 import org.opensaml.saml.saml2.core.Response;
+import org.opensaml.saml.saml2.core.impl.ResponseUnmarshaller;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.security.x509.BasicX509Credential;
-import org.opensaml.xml.Configuration;
-import org.opensaml.xml.io.Unmarshaller;
-import org.opensaml.xml.io.UnmarshallerFactory;
-import org.opensaml.xml.io.UnmarshallingException;
 import org.opensaml.xml.parse.BasicParserPool;
 import org.opensaml.xml.parse.XMLParserException;
+import org.opensaml.xmlsec.signature.Signature;
 import org.opensaml.xmlsec.signature.support.SignatureException;
 import org.opensaml.xmlsec.signature.support.SignatureValidator;
 import org.w3c.dom.Document;
@@ -86,11 +85,10 @@ public final class UserAuthenticator
       Document samlDoc = parserMgr.parse(is);
       Element samlRoot = samlDoc.getDocumentElement();
 
-      UnmarshallerFactory unmarshallerFactory = Configuration.getUnmarshallerFactory();
-      Unmarshaller unmarshaller = unmarshallerFactory.getUnmarshaller(samlRoot);
-      return (Response) unmarshaller.unmarshall(samlRoot);
+      ResponseUnmarshaller unmarsh = new ResponseUnmarshaller();
+      return (Response) unmarsh.unmarshall(samlRoot);
     }
-    catch (XMLParserException | UnmarshallingException | IOException e)
+    catch (XMLParserException | IOException | UnmarshallingException e)
     {
       throw new AuthenticationException("Error unmarshalling SAML Response", e);
     }
@@ -100,7 +98,8 @@ public final class UserAuthenticator
   {
     this.assertion = validateResponse(this.response);
     validateAssertion(assertion);
-    validateSignature(assertion, certFileName);
+    validateSignature(response.getSignature(), certFileName);
+    validateSignature(assertion.getSignature(), certFileName);
   }
 
   private static Assertion validateResponse(Response response) throws AuthenticationException
@@ -117,7 +116,7 @@ public final class UserAuthenticator
       throw new AuthenticationException("The response doesn't contain exactly 1 assertion");
     }
 
-    if (!response.getIssuer().getValue().equals("MySamlIssuer"))
+    if (response.getIssuer() == null || !response.getIssuer().getValue().equals("MySamlIssuer"))
     {
       throw new AuthenticationException("The response issuer didn't match the expected value");
     }
@@ -144,21 +143,26 @@ public final class UserAuthenticator
     enforceConditions(assertion.getConditions());
   }
 
-  private static void validateSignature(Assertion assertion, String certFileName) throws AuthenticationException
+  private static void validateSignature(Signature signature, String certFileName) throws AuthenticationException
   {
     try
     {
       Credential credential = new BasicX509Credential(loadCertificate(certFileName));
-      SignatureValidator.validate(assertion.getSignature(), credential);
+      SignatureValidator.validate(signature, credential);
     }
     catch (SignatureException se)
     {
-      throw new AuthenticationException("Error verifying assertion signature", se);
+      throw new AuthenticationException("Error verifying signature", se);
     }
   }
 
   private static void enforceConditions(Conditions conditions) throws AuthenticationException
   {
+    if (conditions == null)
+    {
+      return;
+    }
+
     DateTime now = DateTime.now();
 
     if (now.isBefore(conditions.getNotBefore()))
