@@ -9,6 +9,7 @@
 	<modules>
 		<module>ProcessingValve</module>
 		<module>CustomLogAppender</module>
+		<module>DB2AS400Driver</module>
 	</modules>
 	
 	<build>

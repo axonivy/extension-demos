@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IBM DB2 AS400 JDBC Library
+Bundle-SymbolicName: com.acme.lib.db.db2.as400
+Bundle-Version: 10.4.0.qualifier
+Bundle-Vendor: AXON Ivy AG
+Bundle-ClassPath: lib/jt400.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: ch.ivyteam.lib.db.db2.as400
+Export-Package: com.ibm.as400.access,
+ com.ibm.as400.access.jdbcClient,
+ com.ibm.as400.access.list,
+ com.ibm.as400.data,
+ com.ibm.as400.micro,
+ com.ibm.as400.resource,
+ com.ibm.as400.security,
+ com.ibm.as400.security.auth,
+ com.ibm.as400.util,
+ com.ibm.as400.util.commtrace,
+ com.ibm.as400.vaccess,
+ utilities
+Require-Bundle: ch.ivyteam.db;bundle-version="8.0.0"
+Eclipse-RegisterBuddy: ch.ivyteam.db
