@@ -4,7 +4,6 @@ Bundle-Name: ProcessingValve
 Bundle-SymbolicName: com.acme.ProcessingValve;singleton:=true
 Bundle-Version: 9.1.0.qualifier
 Require-Bundle: ch.ivyteam.tomcat,
- ch.ivyteam.commons.lib,
  ch.ivyteam.util
 Eclipse-RegisterBuddy: ch.ivyteam.tomcat
 Export-Package: com.acme.valve
