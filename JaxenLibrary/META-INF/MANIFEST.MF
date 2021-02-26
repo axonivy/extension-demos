@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jaxen Jar Library
+Bundle-SymbolicName: com.acme.lib.hibernate.jaxen
+Bundle-Version: 1.1.6.qualifier
+Bundle-Vendor: AXON Ivy AG
+Bundle-ClassPath: lib/jaxen.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: ch.ivyteam.lib.hibernate.jaxen
+Export-Package: org.jaxen,
+ org.jaxen.dom,
+ org.jaxen.dom4j,
+ org.jaxen.expr,
+ org.jaxen.expr.iter,
+ org.jaxen.function,
+ org.jaxen.function.ext,
+ org.jaxen.function.xslt,
+ org.jaxen.javabean,
+ org.jaxen.jdom,
+ org.jaxen.pattern,
+ org.jaxen.saxpath,
+ org.jaxen.saxpath.base,
+ org.jaxen.saxpath.helpers,
+ org.jaxen.util,
+ org.jaxen.xom,
+ org.w3c.dom
+Require-Bundle: ch.ivyteam.lib.hibernate;bundle-version="7.3.0"
+Eclipse-RegisterBuddy: ch.ivyteam.lib.hibernate

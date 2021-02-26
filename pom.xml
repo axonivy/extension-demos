@@ -10,6 +10,7 @@
 		<module>ProcessingValve</module>
 		<module>CustomLogAppender</module>
 		<module>DB2AS400Driver</module>
+		<module>JaxenLibrary</module>
 	</modules>
 	
 	<build>
