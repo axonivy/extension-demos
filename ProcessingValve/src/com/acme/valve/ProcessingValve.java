@@ -16,7 +16,7 @@ import ch.ivyteam.log.Logger;
 
 /**
  * Simple processing valve adapted so that it runs in the OSGi environment of
- * Axon.ivy.
+ * Axon Ivy.
  * 
  * http://javaevangelist.blogspot.ch/2012/12/tomcat-7-custom-valve.html
  */

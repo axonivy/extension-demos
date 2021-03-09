@@ -1,12 +1,12 @@
 # Custom Log Appender
-Demonstrates how you could write a Log Appender that can be enabled to be used by Axon.ivy. trough the `configurations/log4jconfig.xml` file.
+Demonstrates how you could write a Log Appender that can be enabled to be used by Axon Ivy. trough the `configurations/log4jconfig.xml` file.
 
 ## Integration
-- The custom log appender must contribute the Axon.ivy core bundle `ch.ivyteam.util`, that contains Log4j and its related libraries. Therefore this bundle registers itself as buddy of `ch.ivyteam.util`. See [META-INF/MANIFEST.MF](https://github.com/ivy-samples/tomcatValve/blob/master/CustomLogAppender/META-INF/MANIFEST.MF) `Eclipse-RegisterBuddy: ch.ivyteam.util`
+- The custom log appender must contribute the Axon Ivy core bundle `ch.ivyteam.util`, that contains Log4j and its related libraries. Therefore this bundle registers itself as buddy of `ch.ivyteam.util`. See [META-INF/MANIFEST.MF](https://github.com/ivy-samples/tomcatValve/blob/master/CustomLogAppender/META-INF/MANIFEST.MF) `Eclipse-RegisterBuddy: ch.ivyteam.util`
 
 ## Installation
 - build this JAR via `mvn clean verify`. The jar is then create as `target/com.acme.CustomLogAppender-XYZ-SNAPSHOT.jar`.
-- copy the JAR into the `dropins` directory of an Axon.ivy Engine or Designer
+- copy the JAR into the `dropins` directory of an Axon Ivy Engine or Designer
 - enable the appender in the log4jconfig.xml by adding a custom appender
 ```xml
   <appender name="MyWsAppender" class="com.acme.custom.SoapTaskLogAppender">

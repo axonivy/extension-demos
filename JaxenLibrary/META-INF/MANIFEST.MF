@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Jaxen Jar Library
 Bundle-SymbolicName: com.acme.lib.hibernate.jaxen
 Bundle-Version: 1.1.6.qualifier
-Bundle-Vendor: AXON Ivy AG
+Bundle-Vendor: Axon Ivy AG
 Bundle-ClassPath: lib/jaxen.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: ch.ivyteam.lib.hibernate.jaxen
