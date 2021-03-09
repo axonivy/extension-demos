@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: IBM DB2 AS400 JDBC Library
 Bundle-SymbolicName: com.acme.lib.db.db2.as400
 Bundle-Version: 10.4.0.qualifier
-Bundle-Vendor: AXON Ivy AG
+Bundle-Vendor: Axon Ivy AG
 Bundle-ClassPath: lib/jt400.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: ch.ivyteam.lib.db.db2.as400

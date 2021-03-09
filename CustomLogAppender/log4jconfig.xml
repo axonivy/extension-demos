@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <!--
-  This is the logging configuration file for Axon.ivy Designer.
+  This is the logging configuration file for Axon Ivy Designer.
   It defines which log messages are logged (category/priority) and where the logs are written to. 
    
-  Logging in Axon.ivy Designer is based on a 3rd party library called Log4J 
+  Logging in Axon Ivy Designer is based on a 3rd party library called Log4J 
   (see http://logging.apache.org/log4j for more information).
    
 -->

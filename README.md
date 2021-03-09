@@ -1,8 +1,8 @@
-# Axon.ivy integration
-The demos in this repository show how custom code can extend the Axon.ivy core.
+# Axon Ivy integration
+The demos in this repository show how custom code can extend the Axon Ivy core.
 
 ## Bundling
-The Axon.ivy core JAR libraries life in an OSGi environment. Therefore contributions to these JARs must be OSGi compliant by itself. This means that extension JARs must not only contain the binary code of your classes. But as well an enriched `META-INF/MANIFEST.MF` that describes OSGi bundle meta data.
+The Axon Ivy core JAR libraries life in an OSGi environment. Therefore contributions to these JARs must be OSGi compliant by itself. This means that extension JARs must not only contain the binary code of your classes. But as well an enriched `META-INF/MANIFEST.MF` that describes OSGi bundle meta data.
 
 ### How to turn your JAR into a bundle
 To make your own JAR an OSGi bundle the following Manifest entries are important:
