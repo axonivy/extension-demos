@@ -5,10 +5,11 @@
 	<groupId>com.acme</groupId>
 	<artifactId>com.acme.lib.db.db2.as400</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<version>10.4.0-SNAPSHOT</version>
+	<version>10.6.0-SNAPSHOT</version>
 
 	<properties>
 		<tycho.version>1.7.0</tycho.version>
+		<jtArtifact>jt400-jdk9</jtArtifact>
 	</properties>
 
 	<repositories>
@@ -31,8 +32,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>net.sf.jt400</groupId>
-			<artifactId>jt400</artifactId>
-			<version>10.4</version>
+			<artifactId>${jtArtifact}</artifactId>
+			<version>10.6</version>
 		</dependency>
 	</dependencies>
 
@@ -112,7 +113,7 @@
 				<configuration>
 					<stripVersion>true</stripVersion>
 					<includeArtifactIds>
-						jt400
+						${jtArtifact}
 					</includeArtifactIds>
 				</configuration>
 			</plugin>
