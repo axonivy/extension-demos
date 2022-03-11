@@ -20,15 +20,6 @@
 		</repository>
 	</repositories>
 
-	<distributionManagement>
-		<repository>
-			<id>repo.axonivy.com</id>
-			<layout>default</layout>
-			<name>Public Build Integration Repository</name>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-		</repository>
-	</distributionManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.ibm.informix</groupId>
@@ -195,6 +186,13 @@
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+        </plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
