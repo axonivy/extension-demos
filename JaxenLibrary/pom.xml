@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.acme</groupId>
-	<artifactId>com.acme.lib.hibernate.jaxen</artifactId>
+	<groupId>com.axonivy.extensions.demo</groupId>
+	<artifactId>hibernate-jaxen</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<version>1.1.6-SNAPSHOT</version>
 
@@ -21,10 +21,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>repo.axonivy.com</id>
-			<layout>default</layout>
-			<name>Public Build Integration Repository</name>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+			<id>nexus.axonivy.com</id>
+			<url>https://nexus.axonivy.com/repository/maven-snapshots/</url>
 		</repository>
 	</distributionManagement>
 

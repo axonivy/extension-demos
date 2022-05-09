@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: CustomLogAppender
-Bundle-SymbolicName: com.acme.CustomLogAppender
+Bundle-SymbolicName: custom-log-appender
 Bundle-Version: 9.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: ch.ivyteam.util;bundle-version="7.0.0",

@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IBM Informix JDBC Library
-Bundle-SymbolicName: ch.ivyteam.lib.db.informix
+Bundle-SymbolicName: db-informix
 Bundle-Version: 4.50.7.1
 Bundle-Vendor: Axon Ivy AG
 Bundle-ClassPath: lib/jdbc.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Automatic-Module-Name: ch.ivyteam.lib.db.informix
+Automatic-Module-Name: db-informix
 Export-Package: com.informix.asf,
  com.informix.csm,
  com.informix.csm.crypto,
