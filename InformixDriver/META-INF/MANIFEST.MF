@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IBM Informix JDBC Library
+Bundle-SymbolicName: ch.ivyteam.lib.db.informix
+Bundle-Version: 4.50.7.1
+Bundle-Vendor: Axon Ivy AG
+Bundle-ClassPath: lib/jdbc.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: ch.ivyteam.lib.db.informix
+Export-Package: com.informix.asf,
+ com.informix.csm,
+ com.informix.csm.crypto,
+ com.informix.jdbc,
+ com.informix.jdbc.lob,
+ com.informix.jdbc.udt,
+ com.informix.jdbc.udt.bson,
+ com.informix.jdbcx,
+ com.informix.jns,
+ com.informix.judr,
+ com.informix.lang,
+ com.informix.smartTrigger,
+ com.informix.types,
+ com.informix.util,
+ org.bson,
+ org.bson.json
+Require-Bundle: ch.ivyteam.db;bundle-version="8.0.0"
+Eclipse-RegisterBuddy: ch.ivyteam.db
+Eclipse-ExtensibleAPI: true
