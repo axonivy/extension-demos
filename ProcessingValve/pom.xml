@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.acme</groupId>
-	<artifactId>com.acme.ProcessingValve</artifactId>
+	<groupId>com.axonivy.extensions.demo</groupId>
+	<artifactId>processing-valve</artifactId>
 	<version>9.1.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	
@@ -21,22 +21,10 @@
 		</repository>
 	</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>sonatype</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<distributionManagement>
 		<repository>
-			<id>repo.axonivy.com</id>
-			<layout>default</layout>
-			<name>Public Build Integration Repository</name>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+			<id>nexus.axonivy.com</id>
+			<url>https://nexus.axonivy.com/repository/maven-snapshots/</url>
 		</repository>
 	</distributionManagement>
 

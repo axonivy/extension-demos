@@ -2,14 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ch.ivyteam.ivy</groupId>
-	<artifactId>ch.ivyteam.lib.db.informix</artifactId>
+	<groupId>com.axonivy.extensions.demo</groupId>
+	<artifactId>db-informix</artifactId>
+
 	<packaging>eclipse-plugin</packaging>
 	<version>4.50.7.1</version>
 
 	<properties>
 		<tycho.version>1.7.0</tycho.version>
-    <driverArtifact>jdbc</driverArtifact>
+    	<driverArtifact>jdbc</driverArtifact>
 	</properties>
 
 	<repositories>
