@@ -15,7 +15,7 @@ pipeline {
     stage('build') {
       steps {
         script {
-          maven cmd: 'clean deploy -Divy.engine.list.url=https://jenkins.ivyteam.io/job/ivy-core_product/job/master/'
+          maven cmd: 'clean deploy -Divy.engine.list.url=https://jenkins.ivyteam.io/job/core_product/job/master/'
           archiveArtifacts '*/target/*.jar'
         }
       }
