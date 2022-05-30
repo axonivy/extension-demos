@@ -16,7 +16,7 @@ pipeline {
       steps {
         script {
           maven cmd: 'deploy ' +
-            ' -Divy.engine.list.url=https://jenkins.ivyteam.io/job/ivy-core_product/job/release%252F8.0/ ' +
+            ' -Divy.engine.list.url=https://jenkins.ivyteam.io/job/core_product/job/release%252F8.0/ ' +
             ' -Dproject-build-plugin.version=8.0.6 '
 
           archiveArtifacts '*/target/*.jar'
