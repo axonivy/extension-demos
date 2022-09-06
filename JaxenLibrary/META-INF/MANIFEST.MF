@@ -5,7 +5,7 @@ Bundle-SymbolicName: hibernate-jaxen
 Bundle-Version: 1.1.6.qualifier
 Bundle-Vendor: Axon Ivy AG
 Bundle-ClassPath: lib/jaxen.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: ch.ivyteam.lib.hibernate.jaxen
 Export-Package: org.jaxen,
  org.jaxen.dom,
