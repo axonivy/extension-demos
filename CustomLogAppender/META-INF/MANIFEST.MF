@@ -4,6 +4,7 @@ Bundle-Name: CustomLogAppender
 Bundle-SymbolicName: custom-log-appender
 Bundle-Version: 9.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Require-Bundle: ch.ivyteam.util;bundle-version="7.0.0",
- ch.ivyteam.ivy.server;bundle-version="7.0.0"
+Require-Bundle: ch.ivyteam.util,
+ ch.ivyteam.ivy.server,
+ ch.ivyteam.ivy.workflow
 Eclipse-RegisterBuddy: ch.ivyteam.util
