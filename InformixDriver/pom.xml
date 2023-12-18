@@ -9,7 +9,7 @@
 	<version>4.50.7.1</version>
 
 	<properties>
-		<tycho.version>3.0.4</tycho.version>
+		<tycho.version>2.6.0</tycho.version>
     	<driverArtifact>jdbc</driverArtifact>
 	</properties>
 
@@ -17,7 +17,7 @@
 		<repository>
 			<id>ivy.nightly.release</id>
 			<layout>p2</layout>
-			<url>https://download.axonivy.rocks/p2/nightly/</url>
+			<url>https://download.axonivy.rocks/p2/lts-10.0/</url>
 		</repository>
 	</repositories>
 

@@ -19,5 +19,5 @@ Export-Package: com.ibm.as400.access,
  com.ibm.as400.util.commtrace,
  com.ibm.as400.vaccess,
  utilities
-Require-Bundle: ch.ivyteam.db;bundle-version="8.0.0"
+Require-Bundle: ch.ivyteam.db;bundle-version="10.0.0"
 Eclipse-RegisterBuddy: ch.ivyteam.db
