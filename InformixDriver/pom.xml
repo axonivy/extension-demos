@@ -17,7 +17,7 @@
 		<repository>
 			<id>ivy.nightly.release</id>
 			<layout>p2</layout>
-			<url>https://p2.ivyteam.ch/p2/lts-10.0/</url>
+			<url>https://p2.ivyteam.ch/p2/10.0/</url>
 		</repository>
 	</repositories>
 
