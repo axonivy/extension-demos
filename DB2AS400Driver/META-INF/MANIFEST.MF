@@ -5,7 +5,6 @@ Bundle-SymbolicName: db-db2-as400
 Bundle-Version: 10.6.0.qualifier
 Bundle-Vendor: Axon Ivy AG
 Bundle-ClassPath: lib/jt400-jdk9.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: ch.ivyteam.lib.db.db2.as400
 Export-Package: com.ibm.as400.access,
  com.ibm.as400.access.jdbcClient,

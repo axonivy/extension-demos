@@ -7,4 +7,3 @@ Require-Bundle: ch.ivyteam.tomcat,
  ch.ivyteam.util
 Eclipse-RegisterBuddy: ch.ivyteam.tomcat
 Export-Package: com.acme.valve
-Bundle-RequiredExecutionEnvironment: JavaSE-17
