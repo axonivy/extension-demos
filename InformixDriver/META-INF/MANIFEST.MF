@@ -5,7 +5,6 @@ Bundle-SymbolicName: db-informix
 Bundle-Version: 4.50.7.1
 Bundle-Vendor: Axon Ivy AG
 Bundle-ClassPath: lib/jdbc.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: db-informix
 Export-Package: com.informix.asf,
  com.informix.csm,
