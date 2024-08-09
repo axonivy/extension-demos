@@ -41,7 +41,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>${project-build-plugin.version}</version>
+				<version>10.0.16</version>
 				<executions>
 					<execution>
 						<id>install.ivy.engine</id>
@@ -61,7 +61,8 @@
 				</executions>
 				<configuration>
 					<engineDirectory>${ivy.engine.dir}</engineDirectory>
-					<ivyVersion>[10.0.0,11.0)</ivyVersion>
+					<ivyVersion>(10.0.0,]</ivyVersion>
+					
 				</configuration>
 			</plugin>
 			
