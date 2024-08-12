@@ -1,7 +1,7 @@
 <project>
 
 	<target name="configure">
-		<copy file="${basedir}/log4jconfig.xml" 
+		<copy file="${basedir}/log4j2.xml" 
 			todir="${ivy.engine.dir}/configuration"
 			verbose="true" overwrite="true"/>
 		<copy file="${project.build.directory}/${project.name}-${project.version}.jar" 

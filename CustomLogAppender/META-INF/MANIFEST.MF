@@ -5,5 +5,6 @@ Bundle-SymbolicName: custom-log-appender
 Bundle-Version: 10.0.0.qualifier
 Require-Bundle: ch.ivyteam.util,
  ch.ivyteam.ivy.server,
- ch.ivyteam.ivy.workflow
-Eclipse-RegisterBuddy: ch.ivyteam.util
+ ch.ivyteam.ivy.workflow,
+ ch.ivyteam.lib.logging
+Eclipse-RegisterBuddy: ch.ivyteam.lib.logging

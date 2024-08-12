@@ -1,0 +1,20 @@
+<Configuration packages="com.acme.custom" >
+  <Appenders>
+    <SoapTaskLogAppender name="MyWsAppender">
+    </SoapTaskLogAppender>
+  </Appenders>
+  <Loggers>
+<!--    <logger>
+      <name>ch.ivyteam.log</name>
+      <level>info</level>
+      <AppenderRef>
+        <ref>MyWsAppender</ref>
+      </AppenderRef>
+    </logger>-->
+    <Root level="warn" includeLocation="false">
+      <AppenderRef ref="IvyLog" /> 
+      <AppenderRef ref="ConsoleLog" />
+      <AppenderRef ref="MyWsAppender" />
+    </Root>
+  </Loggers>
+</Configuration>
