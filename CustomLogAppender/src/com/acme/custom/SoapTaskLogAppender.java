@@ -42,7 +42,6 @@ public final class SoapTaskLogAppender extends AbstractAppender {
   @Override
   public void append(LogEvent event) {
     String formattedMessage = new String(getLayout().toByteArray(event));
-    System.out.print(formattedMessage);
     if (formattedMessage.contains("Web service process")) {
       Pattern pattern = Pattern.compile("task=(\\d+)");
       Matcher matcher = pattern.matcher(formattedMessage);
