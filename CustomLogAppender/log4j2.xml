@@ -1,0 +1,13 @@
+<Configuration packages="com.acme.custom">
+  <Appenders>
+    <SoapTaskLogAppender name="MyWsAppender">
+    </SoapTaskLogAppender>
+  </Appenders>
+  <Loggers>
+    <Root level="warn" includeLocation="false">
+      <AppenderRef ref="IvyLog" />
+      <AppenderRef ref="ConsoleLog" />
+      <AppenderRef ref="MyWsAppender" />
+    </Root>
+  </Loggers>
+</Configuration>
