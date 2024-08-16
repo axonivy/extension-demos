@@ -42,7 +42,8 @@ public final class SoapTaskLogAppender extends AbstractAppender {
   @Override
   public void append(LogEvent event) {
     String formattedMessage = new String(getLayout().toByteArray(event));
-    if (formattedMessage.contains("*** SOAP Request ***")) {
+    System.out.print(formattedMessage);
+    if (formattedMessage.contains("Web service process")) {
       Pattern pattern = Pattern.compile("task=(\\d+)");
       Matcher matcher = pattern.matcher(formattedMessage);
       if (matcher.find()) {
@@ -51,7 +52,7 @@ public final class SoapTaskLogAppender extends AbstractAppender {
         ITask task = Ivy.wf().findTask(taskId);
         task.createNote(Ivy.session(), formattedMessage);
         task.setDescription(formattedMessage);
-        Ivy.log().info("MAO LOG: " + formattedMessage);
+        Ivy.log().error("MAO LOG: " + formattedMessage);
       }
     }
   }
