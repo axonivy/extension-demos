@@ -4,7 +4,7 @@ The appender attaches itself to the desired logs.
 To see the output, you need an error log in the project, which the appender can attach. The error log should be in the process in which you want the appender to append to the log. The log should look like this: ```Ivy.log().error("your log info"); ``` 
 
 ## Integration
-- The custom log appender must contribute the Axon Ivy core bundle `ch.ivyteam.lib.logging`, 
+- The custom log appender has to contribute to the Axon Ivy core bundle `ch.ivyteam.lib.logging`, 
   which includes Log4j2 and its related libraries. Therefore this bundle 
   registers itself as buddy of `ch.ivyteam.lib.logging`. See [META-INF/MANIFEST.MF]
   (https://github.com/ivy-samples/tomcatValve/blob/master/CustomLogAppender/META-INF/MANIFEST.MF) 
