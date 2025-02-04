@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>net.sf.jt400</groupId>
 			<artifactId>${jtArtifact}</artifactId>
-			<version>10.7</version>
+			<version>11.1</version>
 		</dependency>
 	</dependencies>
 
