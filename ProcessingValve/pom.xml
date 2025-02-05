@@ -7,7 +7,7 @@
 	<packaging>eclipse-plugin</packaging>
 	
 	<properties>
-		<tycho.version>2.6.0</tycho.version>
+		<tycho.version>2.7.5</tycho.version>
 		<java.version>17</java.version>
 		<ivy.engine.dir>${project.build.directory}/ivyEngine</ivy.engine.dir>
 		<project-build-plugin.version>10.0.6</project-build-plugin.version>
