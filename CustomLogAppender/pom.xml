@@ -11,7 +11,7 @@
 		<tycho.version>2.6.0</tycho.version>
 		<java.version>17</java.version>
 		<ivy.engine.dir>${project.build.directory}/ivyEngine</ivy.engine.dir>
-		<project-build-plugin.version>9.3.2</project-build-plugin.version>
+		<project-build-plugin.version>9.4.1</project-build-plugin.version>
 	</properties>
 
 	<repositories>
