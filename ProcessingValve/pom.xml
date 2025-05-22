@@ -10,7 +10,6 @@
 		<tycho.version>4.0.12</tycho.version>
 		<java.version>21</java.version>
 		<ivy.engine.dir>${project.build.directory}/ivyEngine</ivy.engine.dir>
-		<project-build-plugin.version>12.0.1</project-build-plugin.version>
 	</properties>
 
 	<repositories>
@@ -40,7 +39,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>${project-build-plugin.version}</version>
+				<version>12.0.1</version>
 				<executions>
 					<execution>
 						<id>install.ivy.engine</id>
@@ -60,7 +59,6 @@
 				</executions>
 				<configuration>
 					<engineDirectory>${ivy.engine.dir}</engineDirectory>
-					<ivyVersion>[8.0.0,]</ivyVersion>
 				</configuration>
 			</plugin>
 			
