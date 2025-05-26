@@ -40,7 +40,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>13.1.0</version>
+				<version>13.1.1</version>
 				<executions>
 					<execution>
 						<id>install.ivy.engine</id>
