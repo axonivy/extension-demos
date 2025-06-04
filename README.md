@@ -21,3 +21,5 @@ Require-Bundle: ch.ivyteam.ivy.server;bundle-version="7.0.0"
 Eclipse-RegisterBuddy: ch.ivyteam.tomcat
 ```
 
+## JDBC Drivers
+Since Axon Ivy 13.1, it is possible to include a JDBC driver directly within an Axon Ivy project. For example, see [IBM-Db2-LUW](https://github.com/axonivy-market/ibm-db2-luw). As a result, creating a separate Axon Ivy extension to provide a JDBC driver is no longer necessary.
