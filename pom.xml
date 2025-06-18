@@ -11,7 +11,6 @@
 		<module>CustomLogAppender</module>
 		<module>DB2AS400Driver</module>
 		<module>InformixDriver</module>
-		<module>JaxenLibrary</module>
 	</modules>
 	
 	<build>
