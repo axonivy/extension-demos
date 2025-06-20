@@ -13,9 +13,9 @@
 
 	<repositories>
 		<repository>
-			<id>ivy.nightly.release</id>
+			<id>ivy.nightly-12.0.release</id>
 			<layout>p2</layout>
-			<url>https://p2.ivyteam.ch/p2/nightly/</url>
+			<url>https://p2.ivyteam.ch/p2/nightly-12.0/</url>
 		</repository>
 	</repositories>
 
