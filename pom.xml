@@ -8,8 +8,7 @@
 	
 	<modules>
 		<module>ProcessingValve</module>
-		<!-- disable until log4j2 2.25.1 is released -->
-		<!-- <module>CustomLogAppender</module> -->
+		<module>CustomLogAppender</module> 
 		<module>DB2AS400Driver</module>
 		<module>InformixDriver</module>
 	</modules>
