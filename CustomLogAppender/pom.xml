@@ -92,6 +92,10 @@
 					<configuration>
 						<source>${java.version}</source>
 						<target>${java.version}</target>
+						<compilerArgs>
+							<arg>-Alog4j.graalvm.groupId=${project.groupId}</arg>
+							<arg>-Alog4j.graalvm.artifactId=${project.artifactId}</arg>
+						</compilerArgs>
 					</configuration>
 				</plugin>
 				<plugin>
