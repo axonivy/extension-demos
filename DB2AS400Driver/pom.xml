@@ -8,7 +8,7 @@
 	<version>10.6.0-SNAPSHOT</version>
 
 	<properties>
-		<tycho.version>4.0.13</tycho.version>
+		<tycho.version>5.0.0</tycho.version>
 		<jtArtifact>jt400-jdk9</jtArtifact>
 	</properties>
 
