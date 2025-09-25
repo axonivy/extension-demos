@@ -15,7 +15,7 @@ pipeline {
     stage('build') {
       steps {
         script {
-          maven cmd: 'clean deploy -Divy.engine.list.url=https://product.ivyteam.io -Divy.engine.version.latest.minor=true'
+          maven cmd: 'clean deploy' // -Divy.engine.list.url=https://product.ivyteam.io -Divy.engine.version.latest.minor=true'
           archiveArtifacts '*/target/*.jar'
         }
       }
