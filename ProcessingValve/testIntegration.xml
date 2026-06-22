@@ -17,7 +17,7 @@
 			srcfile="${ivy.engine.dir}/logs/ivy.log" />
 		
 		<condition property="hasValveLogs">
-			<matches pattern="Header --> host Value --> " string="${engine.log}"/>
+			<matches pattern="Header --> Host Value --> " string="${engine.log}"/>
 		</condition>
 		
 		<fail unless="hasValveLogs" message="Valve not in charge!" />
